@@ -1,0 +1,75 @@
+<!--pages/aHome/queAskAns/queAskAns.wxml-->
+<!-- head -->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">回复详情</view>
+</cu-custom>
+
+<!-- 问题相关 -->
+<!-- <view class="cu-card article">
+  <view class="cu-item shadow" wx:for="{{fatherQueList}}" wx:key="key">
+    <view class="title">
+      <view class="text-cut">{{item.queTitle}}</view>
+    </view>
+    <view class="content">
+      <view class="desc" style="height:25px;">
+        <view class="text-content">
+          {{item.queAns}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-yellow"></text>
+    <text class="text-bold">{{queUserAsk.queTitle}}</text>
+  </view>
+</view>
+<view class="padding-xl radius shadow-warp bg-white margin-top margin-bottom">
+  <view class="action" >
+        <view class="text-content" wx:for="{{queContentList}}" wx:key="key">
+          {{item}}
+        </view>
+  </view>
+</view>
+
+<!-- 问题内容 -->
+<!-- <view class='margin-xl radius bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-xxl  text-grey'>{{queUserAsk.queTitle}}</view>
+  <view class='text-content margin-top'>
+    <view>
+      <view class="text-xl margin-top" wx:for="{{queContentList}}" wx:key="key">
+        {{item}}
+      </view>
+    </view>
+  </view>
+</view> -->
+
+
+<view class="cu-bar bg-white solid-bottom margin-top" wx:if="{{queUserAsk.askStatus === 1}}">
+  <view class="action">
+    <text class="cuIcon-titles text-brown"></text>
+    <text class="text-bold">以下为答复参考</text>
+  </view>
+</view>
+<view class="padding-xl radius shadow-warp bg-white margin-top">
+  <view class="action" >
+        <view class="text-content" wx:for="{{queAnsList}}" wx:key="key">
+          {{item}}
+        </view>
+  </view>
+</view>
+
+<!-- 
+<view wx:if="{{queUserAsk.askStatus === 1}}" class='margin-xl radius bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-xxl  text-grey'>以下为答复参考</view>
+  <view class='text-content margin-top'>
+    <view>
+      <view class="text-xl margin-top" wx:for="{{queAnsList}}" wx:key="key">
+        {{item}}
+      </view>
+    </view>
+  </view>
+</view> -->

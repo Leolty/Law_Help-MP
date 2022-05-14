@@ -1,0 +1,6 @@
+<!--pages/aMine/aboutSetting/aboutSetting.wxml-->
+<!-- head -->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">个人设置</view>
+</cu-custom>

@@ -1,0 +1,37 @@
+<!--pages/aHome/queOther/queOther.wxml-->
+<toast id="toast" />
+
+<!-- head -->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">提问</view>
+</cu-custom>
+
+<view class="bg-gray padding-lr">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xl padding">
+        <text class="text-black text-bold">{{queText}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<form>
+  <view class="cu-form-group margin-top">
+    <view class="title">提问标题</view>
+    <input bindinput="queTitleInput" placeholder="请输入标题"></input>
+  </view>
+  
+  <view class="cu-form-group">
+    <textarea maxlength="{{strNumMax}}" style="height: 300px;" bindinput='textChange' placeholder="请输入详细信息"></textarea>
+  </view>
+
+  <view class="padding bg-white">
+    <view class="text-right ">{{strNumNow}}/{{strNumMax}}</view>
+  </view>
+
+  <view class="padding">
+    <button class="cu-btn block bg-green margin-tb-sm lg" bindtap="submit">提交</button>
+  </view>
+</form>

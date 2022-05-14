@@ -1,0 +1,54 @@
+<!--pages/aNew/home/home.wxml-->
+<cu-custom bgColor="bg-green" isBack="{{false}}">
+	<view slot="content">发布</view>
+</cu-custom>
+
+<toast id="toast" />
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+	<view class="action">
+		<text class="cuIcon-title text-green "></text> 建议内容
+	</view>
+</view>
+
+<form>
+<!-- 标题 -->
+	<view class="cu-form-group margin-top">
+		<view class="title">标题</view>
+		<input bindinput="queTitleInput" placeholder="请输入标题"></input>
+	</view>
+<!-- 文本内容 -->
+	<view class="cu-form-group margin-top">
+		<textarea maxlength="{{strNumMax}}" style="height: 300px;" bindinput='textChange' placeholder="请输入问题描述"></textarea>
+	</view>
+
+	<view class="padding bg-white">
+		<view class="text-right ">{{strNumNow}}/{{strNumMax}}</view>
+	</view>
+<!-- 图片 -->
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			图片上传
+		</view>
+		<view class="action">
+			{{imgList.length}}/{{imgNumMax}}
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-3 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length < imgNumMax}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+	<view class="padding" style="margin-bottom:70px;">
+		<button class="cu-btn block bg-green margin-tb-sm lg" bindtap="submit">点击提交</button>
+	</view>
+</form>

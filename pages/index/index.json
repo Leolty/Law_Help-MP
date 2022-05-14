@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "toast": "../../components/toast/toast",
+    "dialog": "../../components/dialog/dialog",
+
+    "aQueManage": "/pages/aQueManage/home/home",
+    "aSugManage": "/pages/aSugManage/home/home",
+
+    "aHome": "/pages/aHome/home/home",
+    "aMine": "/pages/aMine/home/home",
+    "aNew": "/pages/aNew/home/home"
+  }
+}

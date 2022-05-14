@@ -1,0 +1,67 @@
+<!--pages/aMine/home/home.wxml-->
+<!-- <cu-custom bgColor="bg-gradual-green" isBack="{{false}}">
+	<view slot="content">个人中心</view>
+</cu-custom> -->
+<toast id="toast" />
+<scroll-view scroll-y class="scrollPage">
+
+	<!-- 头像信息 -->
+	<view class="UCenter-bg" style=" background-image: url({{mainBgUrl}});">
+		<!-- <image src="./../images/avatar.jpg" class="png" mode="widthFix"></image> -->
+		<view wx:if="{{hasUserInfo}}" class="cu-avatar round xl"
+			style="margin-top:40px;background-image:url('{{userInfo.avatarUrl}}');"></view>
+
+		<view wx:if="{{hasUserInfo}}" class="text-xl text-bold" style="margin-top:15px;">{{userInfo.nickName}}
+			<!-- <text class="text-df">v2.0</text> -->
+		</view>
+		<view wx:if="{{hasUserInfo}}" class="margin-top-sm" style="max-width:80%;">
+			<text>{{userIntro}}</text>
+		</view>
+		<view wx:if="{{hasUserInfo == false}}" class="padding flex flex-direction" style="margin-top:50px;">
+
+			<button class="cu-btn bg-gray lg" wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像与昵称 </button>
+			<button class="cu-btn bg-gray lg" wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+
+			<!-- <button class="cu-btn bg-gray lg" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button> -->
+		</view>
+		<image src="{{waveBgUrl}}" mode="scaleToFill" class="gif-wave">
+		</image>
+	</view>
+	<!-- 头像信息 end -->
+
+	<!-- 中间菜单 事件相关 -->
+	<view class="padding flex text-center text-grey bg-white shadow-warp">
+		<view wx:for="{{thingsMenu}}" wx:key="key" class="flex flex-sub flex-direction solid-right" bindtap="gotoMenuPage"
+			data-url="{{item.url}}">
+			<view class="text-xxl">
+				<view class="cuIcon-{{item.icon}} text-{{item.color}} "></view>
+			</view>
+			<view class="text-l">
+				<view class="margin-top-sm">{{item.name}}</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 中间菜单 设置、消息、关于我们等相关 -->
+	<!-- <view class="padding flex flex-direction" style="margin-top:10%;">
+		<button open-type="contact" class="cu-btn bg-green lg">开始咨询</button>
+	</view> -->
+
+	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+		<!-- <view class="cu-item arrow">
+			<view class="content ">
+				<text class="cuIcon-service text-orange"></text>
+				<button class="cu-btn text-grey text-left text-df bg-white" style="width:28vw">在线客服</button>
+			</view>
+		</view> -->
+
+		<view wx:for="{{mainMenu}}" wx:key="key" class="cu-item arrow" bindtap="gotoMenuPage" data-url="{{item.url}}">
+			<view class="content ">
+				<text class="cuIcon-{{item.icon}} text-{{item.color}}"></text>
+				<text class="text-grey text-xl ">{{item.name}}</text>
+			</view>
+		</view>
+	</view>
+	<!-- 底部菜单 end -->
+	<view class="cu-tabbar-height"></view>
+</scroll-view>

@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<toast id="toast" />
+
+<!-- page to display -->
+<aHome id="aHome" wx:if="{{pageCur=='aHome'}}"></aHome>
+<aMine id="aMine" wx:if="{{pageCur=='aMine'}}"></aMine>
+<aNew id="aNew" wx:if="{{pageCur=='aNew'}}"></aNew>
+
+<aQueManage id="aQueManage" wx:if="{{pageCur=='aQueManage'}}"></aQueManage>
+<aSugManage id="aSugManage" wx:if="{{pageCur=='aSugManage'}}"></aSugManage>
+
+  <!-- bar on foot -->
+  <view class="cu-bar tabbar bg-white foot">
+    <view class="action {{pageCur=='aHome'?'text-green':'text-gray'}}" bindtap="barChange" data-cur="aHome">
+      <view class="cuIcon-homefill"></view> 首页
+    </view>
+
+    <view wx:if="{{userType > 0}}" 
+    class="action {{pageCur=='aQueManage'?'text-green':'text-gray'}}" bindtap="barChange" data-cur="aQueManage">
+      <view class="cuIcon-formfill"></view> 问题管理
+    </view>
+
+    <view class="action {{pageCur=='aNew'?'text-green':'text-gray'}} add-action" bindtap="barChange" data-cur="aNew">
+      <button class="cu-btn cuIcon-add {{pageCur=='aNew'?'bg-green':'bg-gray text-gray'}}"></button>提问
+    </view>
+
+    <view  wx:if="{{userType > 0}}" 
+    class="action {{pageCur=='aSugManage'?'text-green':'text-gray'}}" bindtap="barChange" data-cur="aSugManage">
+      <view class="cuIcon-commandfill"></view> 问题处理
+    </view>
+
+    <view class="action {{pageCur=='aMine'?'text-green':'text-gray'}}" bindtap="barChange" data-cur="aMine">
+      <view class="cuIcon-my">
+        <!-- <view class="cu-tag badge"></view> -->
+      </view> 我的
+    </view>
+  </view>

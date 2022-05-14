@@ -1,0 +1,16 @@
+<!--pages/aMine/aboutUs/aboutUs.wxml-->
+<!-- head -->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">关于我们</view>
+</cu-custom>
+
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>关于我们</view>
+  <view class='text-content'>
+    <view>Hi！你好~欢迎使用本小程序！</view>
+    <view class='margin-top-sm'>该项目是XXXX自我介绍，自我介绍。自我介绍，自我介绍。自我介绍，自我介绍。自我介绍，
+      自我介绍。自我介绍，自我介绍。自我介绍，自我介绍。自我介绍，自我介绍</view>
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+  </view>
+</view>

@@ -1,0 +1,49 @@
+<!--pages/aHome/home/home.wxml-->
+<!-- head -->
+<cu-custom bgColor="bg-green" isBack="{{false}}">
+  <view slot="content">首页</view>
+</cu-custom>
+
+<!-- 大类别 -->
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-brown "></text> 类别选择
+  </view>
+</view>
+
+<view class="cu-list grid col-2">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key="key" bindtap="gotoQuestion" data-queId="{{item.queRootId}}">
+    <view class="cuIcon-{{item.rootIcon}}  text-{{item.rootColor}}">
+    </view>
+    <text>{{item.rootName}}</text>
+  </view>
+</view>
+
+<!-- 建议与回复 -->
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-brown "></text> 最近建议
+  </view>
+</view>
+
+<view class="cu-card article">
+  <view class="cu-item shadow" wx:for="{{queUserAskList}}" wx:key="key" bindtap="gotoQueAskAns"
+    data-askId="{{item.askId}}">
+    <view class="title">
+      <view class="text-cut">{{item.queTitle}}</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content" style="height:20px;">{{item.queAnswer}}</view>
+        <view class="margin-top">
+          <view class="cu-tag bg-green light sm round">回复于{{item.answerTime}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="more">
+  <view class="fa fa-coffee">
+  </view> 没有更多了
+</view>

@@ -1,0 +1,65 @@
+<!--pages/aHome/question/question.wxml-->
+<toast id="toast" />
+
+<!-- head -->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">问题</view>
+</cu-custom>
+
+<!-- 可以继续嵌套问题 -->
+<view wx:if="{{ops != null}}">
+  <view class="padding bg-white">
+    <view class="cu-progress round sm striped active">
+      <view class="bg-green" style="width:{{progressNum}}%;"></view>
+    </view>
+  </view>
+
+  <view class="bg-gray padding-lr">
+    <view class="solids-bottom padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="solid-bottom text-xl padding ">
+          <text class="text-black text-bold">{{que.queText}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <form>
+    <radio-group class="block">
+      <view class="cu-form-group" wx:for="{{ops}}" wx:key="key">
+        <view class="title margin-left" style="height:auto!important">
+        <view>
+        {{item.queOption}}
+        </view>
+        </view>
+        <radio bindtap="radioChange" data-id="{{item.queId}}"></radio>
+      </view>
+      <view class="cu-form-group" wx:if="{{que.queHasOther === otherTrue}}">
+        <view class="title margin-left">其他</view>
+        <radio bindtap="radioOther"></radio>
+      </view>
+    </radio-group>
+  </form>
+
+  <view class="padding flex flex-direction margin-top">
+    <button class="cu-btn bg-green lg" bindtap="confirm">确 定</button>
+  </view>
+</view>
+
+<!-- 到达答案位置了 -->
+<view wx:if="{{ans != null}}">
+  <view class='margin-xl radius bg-white padding-xl radius shadow-lg'>
+    <view class='text-center margin-bottom text-xxl  text-grey'>您可以参考如下</view>
+    <view class='text-content margin-top'>
+      <view wx:for="{{ansStrList}}" wx:key="key">
+        <view class="text-xl margin-top">
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="padding flex flex-direction margin-top">
+    <button class="cu-btn bg-green lg" bindtap="BackToHome">关闭</button>
+  </view>
+</view>

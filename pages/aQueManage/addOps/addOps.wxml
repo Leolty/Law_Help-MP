@@ -1,0 +1,47 @@
+<!--pages/aQueManage/addOps/addOps.wxml-->
+<toast id="toast" />
+
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">新增</view>
+</cu-custom>
+
+<form>
+  <view class="cu-form-group margin-top">
+    <view class="title">选项内容</view>
+    <input bindinput="queOptionInput" placeholder="请输入选项内容"></input>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title">有答案了</view>
+    <switch class="green sm" checked bindtap="hasAnswerChange"></switch>
+  </view>
+
+  <!-- 选项后就是答案了 -->
+  <view wx:if="{{queOptionHasAnswer}}">
+    <view class="cu-form-group margin-top">
+      <textarea maxlength="{{strNumMax}}" style="height: 300px;" bindinput='answerTextChange'
+        placeholder="请输入答案"></textarea>
+    </view>
+    <view class="padding bg-white">
+      <view class="text-right ">{{strNumNow}}/{{strNumMax}}</view>
+    </view>
+  </view>
+
+  <!-- 可以接着进行问题嵌套 -->
+  <view wx:else>
+    <view class="cu-form-group margin-top">
+      <view class="title">问题标题</view>
+      <input bindinput="queTextInput" placeholder="请输入问题标题"></input>
+    </view>
+
+    <view class="cu-form-group">
+      <view class="title">有"其他"</view>
+      <switch class="green sm" checked bindtap="hasOtherChange"></switch>
+    </view>
+  </view>
+
+  <view class="padding">
+    <button class="cu-btn block bg-green margin-tb-sm lg" bindtap="submit">提交</button>
+  </view>
+</form>

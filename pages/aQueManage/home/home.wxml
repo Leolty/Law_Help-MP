@@ -1,0 +1,22 @@
+<!--pages/aQueManage/home/home.wxml-->
+<cu-custom bgColor="bg-green" isBack="{{false}}">
+  <view slot="content">问题管理</view>
+</cu-custom>
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-brown "></text> 类别选择
+  </view>
+</view>
+
+<view class="cu-list grid col-2">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key="key" bindtap="gotoQueManage" data-queId="{{item.queRootId}}">
+    <view class="cuIcon-{{item.rootIcon}}  text-{{item.rootColor}}">
+    </view>
+    <text>{{item.rootName}}</text>
+  </view>
+</view>
+
+<view class="padding flex flex-direction margin-top">
+  <button class="cu-btn bg-green lg" bindtap="newQueRoot">新增</button>
+</view>

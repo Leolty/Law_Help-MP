@@ -1,0 +1,29 @@
+<!--pages/aMine/queAdd/queAdd.wxml-->
+<!-- head -->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">发起的建议</view>
+</cu-custom>
+
+<view class="cu-card article">
+  <view class="cu-item shadow" wx:for="{{queUserAskList}}" wx:key="key" bindtap="gotoQueAskAns"
+    data-askId="{{item.askId}}" data-status="{{item.askStatus}}">
+    <view class="title">
+      <view class="text-cut">{{item.queTitle}}</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content">{{item.queContent}}</view>
+        <view class="margin-top">
+          <view wx:if="{{item.askStatus === 0}}" class="cu-tag bg-red light sm round">待回复</view>
+          <view wx:if="{{item.askStatus === 1}}" class="cu-tag bg-green light sm round">已回复</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="more">
+  <view class="fa fa-coffee">
+  </view> 没有更多了
+</view>

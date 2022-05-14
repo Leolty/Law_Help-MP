@@ -1,0 +1,13 @@
+<!--pages/aMine/aboutService/aboutService.wxml-->
+<cu-custom bgColor="bg-reen" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">在线客服</view>
+</cu-custom>
+
+<view class="padding flex flex-direction" style="margin-top:50%;">
+  <button open-type="contact" class="cu-btn bg-green lg">进入聊天</button>
+</view>
+
+<view class="flex padding justify-center" style="margin-top:30%;">
+      <view class="padding-sm margin-xs radius">{{motto}}</view>
+    </view>

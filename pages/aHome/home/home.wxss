@@ -1,0 +1,11 @@
+/* pages/aHome/home/home.wxss */
+.more {
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+  line-height: 50px;
+  margin-bottom: 80px;
+}

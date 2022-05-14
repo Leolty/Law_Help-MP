@@ -1,0 +1,32 @@
+<!--pages/aQueManage/addQueRoot/addQueRoot.wxml-->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">新增</view>
+</cu-custom>
+
+<toast id="toast" />
+
+<form>
+	<view class="cu-form-group margin-top">
+		<view class="title">类别名称</view>
+		<input bindinput="rootNameInput" placeholder="请输入类别名称"></input>
+  </view>
+
+	<view class="cu-form-group ">
+		<view class="title">问题标题</view>
+		<input bindinput="queTextInput" placeholder="请输入问题标题"></input>
+  </view>
+  
+	<view class="cu-form-group align-start">
+		<view class="title">问题类别</view>
+		<picker bindchange="rootVersionChange" value="{{rootVersionIndex}}" range="{{rootVersionLevel}}">
+			<view class="picker">
+				{{rootVersionIndex?rootVersionLevel[rootVersionIndex]:'请选择问题类别'}}
+			</view>
+		</picker>
+  </view>
+
+	<view class="padding">
+		<button class="cu-btn block bg-green margin-tb-sm lg" bindtap="submit">提交</button>
+	</view>
+</form>

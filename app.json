@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/aMine/aboutUs/aboutUs",
+    "pages/aMine/aboutSetting/aboutSetting",
+    "pages/aMine/aboutNotice/aboutNotice",
+    "pages/aMine/queAdd/queAdd",
+    "pages/aMine/queComplete/queComplete",
+    "pages/aMine/queDuring/queDuring",
+    "pages/aMine/aboutService/aboutService",
+    "pages/aHome/question/question",
+    "pages/aHome/queOther/queOther",
+    "pages/aQueManage/queManage/queManage",
+    "pages/aQueManage/addQueRoot/addQueRoot",
+    "pages/aQueManage/addOps/addOps",
+    "pages/aSugManage/allSug/allSug",
+    "pages/aSugManage/replySug/replySug",
+    "pages/aHome/queAskAns/queAskAns"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#eee",
+    "navigationBarTitleText": "my_note",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "usingComponents": {
+    "cu-custom": "/components/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

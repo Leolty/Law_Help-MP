@@ -1,0 +1,73 @@
+<!--pages/aQueManage/queManage/queManage.wxml-->
+<toast id="toast" />
+
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">问题</view>
+</cu-custom>
+
+<!-- 可以继续嵌套问题 -->
+<view wx:if="{{ops != null}}">
+  <view class="padding bg-white">
+    <view class="cu-progress round sm striped active">
+      <view class="bg-green" style="width:{{progressNum}}%;"></view>
+    </view>
+  </view>
+
+  <view class="bg-gray padding-lr">
+    <view class="solids-bottom padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="solid-bottom text-xl padding">
+          <text class="text-black text-bold">{{que.queText}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{que.queHasOther == 1}}" class="cu-form-group">
+    <view class="title margin-left margin-top">有"其他"</view>
+  </view>
+
+  <view wx:if="{{ops != null && ops.length > 0}}">
+    <form>
+      <radio-group class="block margin-top">
+        <view class="cu-form-group" wx:for="{{ops}}" wx:key="key">
+          <view class="title margin-left"  style="height:auto!important">
+          <view>
+          {{item.queOption}}
+          </view>
+          </view>
+          <radio bindtap="radioChange" data-id="{{item.queId}}"></radio>
+        </view>
+      </radio-group>
+    </form>
+
+    <view class="padding flex flex-direction margin-top">
+      <button class="cu-btn bg-green lg" bindtap="confirm">点击进入</button>
+    </view>
+
+  </view>
+
+  <view wx:else>
+    <view class="more margin-top">
+      <view class="fa fa-coffee">
+      </view> 暂无更多选项
+    </view>
+  </view>
+
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-green lg" bindtap="gotoAddOps">新增选项</button>
+  </view>
+</view>
+
+<!-- 到达答案位置了 -->
+<view wx:if="{{ans != null}}">
+  <view class='margin-xl bg-white padding-xl radius shadow-lg'>
+    <view class='text-center margin-bottom text-xxl  text-grey'>您可以参考如下:</view>
+    <view class='text-content'>
+      <view wx:for="{{ansStrList}}" wx:key="key">
+        <view class="text-xl margin-top">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>

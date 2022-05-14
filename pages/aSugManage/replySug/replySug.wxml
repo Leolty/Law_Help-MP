@@ -1,0 +1,68 @@
+<!--pages/aSugManage/replySug/replySug.wxml-->
+<toast id="toast" />
+<!-- head -->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">回复建议</view>
+</cu-custom>
+
+<!-- 问题相关 -->
+<view class="cu-card article">
+  <view class="cu-item shadow" wx:for="{{fatherQueList}}" wx:key="key">
+    <view class="title">
+      <view class="text-cut">{{item.queTitle}}</view>
+    </view>
+    <view class="content">
+      <view class="desc" style="height:25px;">
+        <view class="text-content">
+          {{item.queAns}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 问题内容 -->
+<!-- <view class='margin-xl radius bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-xxl  text-grey'>{{queUserAsk.queTitle}}</view>
+  <view class='text-content margin-top'>
+    <view>
+      <view class="text-xl margin-top" wx:for="{{queContentList}}" wx:key="key">
+        {{item}}
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-yellow"></text>
+    <text class="text-bold">{{queUserAsk.queTitle}}</text>
+  </view>
+</view>
+<view class="padding-xl radius shadow-warp bg-white margin-top margin-bottom">
+  <view class="action" >
+        <view class="text-content" wx:for="{{queContentList}}" wx:key="key">
+          {{item}}
+        </view>
+  </view>
+</view>
+
+<!-- 答复相关 -->
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class='action'>
+    <text class='cuIcon-titles text-brown '></text> 在此输入答复
+  </view>
+</view>
+
+<form>
+  <view class="cu-form-group solids-top">
+    <textarea maxlength="{{strNumMax}}" style="height: 300px;" bindinput='textChange' placeholder="请输入建议描述"></textarea>
+  </view>
+  <view class="padding bg-white">
+    <view class="text-right ">{{strNumNow}}/{{strNumMax}}</view>
+  </view>
+  <view class="padding">
+    <button class="cu-btn block bg-green margin-tb-sm lg" bindtap="replyAsk">确认答复</button>
+  </view>
+</form>
